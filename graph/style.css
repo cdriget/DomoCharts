@@ -1,0 +1,213 @@
+/******************************************************************************/
+/*** File    : style.css                                                    ***/
+/*** Author  : Christophe DRIGET                                            ***/
+/*** Version : 5.0                                                          ***/
+/*** History : Feb - Mar 2014 : Initial release                             ***/
+/*** Note    : CSS Stylesheet                                               ***/
+/******************************************************************************/
+
+
+/***********************************************/
+/*** Links                                   ***/
+/***********************************************/
+
+a {
+	text-decoration: none;
+	color: #2E55FF;
+}
+a:link {
+	text-decoration: none;
+	color: #2E55FF;
+}
+a:hover {
+	text-decoration: none;
+	color: red;
+}
+a:active {
+	text-decoration: none;
+	color: #2E55FF;
+}
+
+
+/***********************************************/
+/*** Page Layout                             ***/
+/***********************************************/
+
+/*html {
+	margin:  0;
+	padding: 0;
+	border:  0;
+}*/
+
+body {
+	background-color: #000000;
+	background-image: url('img/bg.png');
+	background-repeat: repeat-x;
+	background-position: 0 0;	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 69%;
+	margin: 0;
+	padding: 1em;
+}
+
+pre.debug {
+	font-family:      Monaco,"Courier New",Courier,monospace;
+	font-size:        100%;
+	padding:          1em;
+	border:           1px solid #888888;
+	color:            Black;
+	background-color: #ffdddd;
+	overflow:         auto;
+}
+
+div.debug {
+	font-family:      Monaco,"Courier New",Courier,monospace;
+	font-size:        100%;
+	margin-top:       1em;
+	padding:          1em;
+	border:           1px solid #888888;
+	color:            Black;
+	background-color: #ffdddd;
+	overflow:         auto;
+}
+
+div.quote {
+	margin-top:       1em;
+	padding:          1em;
+	border:           1px solid #888888;
+	color:            Black;
+	background-color: #EEEEEE;
+	overflow:         auto;
+}
+
+.erreur {
+	color: #FF0000;
+	font-weight: bold;
+	text-align: center;
+}
+
+.succes {
+	color: #009900;
+	text-align: center;
+}
+
+img.button {
+	cursor: pointer;
+	border: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+div.graphs {
+	/*padding: 0em 0em 1em 0em;*/ /* haut droite bas gauche */
+	/*text-align: center;*/
+}
+img.graph {
+	padding: 0em 0em 1em 0em;
+}
+img.summary {
+	cursor: pointer;
+}
+
+
+/***********************************************/
+/*** Site Layout                             ***/
+/***********************************************/
+
+div.site {
+	margin-left: auto;
+	margin-right: auto;
+	/*width: 980px;*/
+	width: 752px;
+}
+div.site-columns {
+	/*width: 100% !important;*/
+}
+div.site-column-left {
+	/*vertical-align: top;*/
+	float: left;
+	width: 228px;
+}
+div.site-column-content {
+	/*vertical-align: top;*/
+	float: left;
+	width: 752px;
+}
+div.site-column-right {
+	vertical-align: top;
+	width: 12em;
+	padding: 0em 0em 1em 1em; /* haut droite bas gauche */
+}
+
+
+/***********************************************/
+/*** Site frame                              ***/
+/***********************************************/
+
+.cadre {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+.cadreTitle {
+	width: 751px;
+	height: 25px;
+	float: left;
+	background: url('img/bg_content_first_section.png') repeat scroll 0% 0% transparent;
+	padding-top: 7px;
+	font-family: verdana,arial,helvetica;
+	font-size: 11px;
+	color: #FFF;
+	text-align: left;
+	margin-top: 20px;
+	text-shadow: 1px 1px 0px #272727;
+}
+.cadreTitle span {
+	padding-left: 1em;
+}
+.cadreBody {
+	width: 751px;
+	float: left;
+	padding: 0;
+	margin: 0;
+	border-bottom: 1px solid #313131;
+}
+.cadre input {
+	font-size: 100%;
+}
+
+
+/***********************************************/
+/*** Element table                           ***/
+/***********************************************/
+
+table.element {
+	padding: 0;
+	margin:  0;
+	border:  0;
+	border-collapse: collapse;
+}
+table.element tr {
+	height: 30px;
+	background: url('img/bg_content_room.png') repeat scroll 0% 0% transparent;
+	border-left: 1px solid #303030;
+	border-right: 1px solid #303030;
+}
+table.element td {
+	font-family: verdana,arial,helvetica;
+	font-size: 11px;
+	color: #ababab;
+	text-shadow: 1px 1px 0px #272727;
+}
+table.element td:hover {
+	color: #ffffff;
+}
+table.device  span.ui-icon {
+	cursor: move;
+}
+/*.ui-state-highlight {
+	height: 1.5em;
+	line-height: 1.2em;
+	border:1px dashed #ff0000;
+}*/
