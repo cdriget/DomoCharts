@@ -9,7 +9,7 @@
 /******************************************************************************/
 
 // MySQL Server hostname or IP address
-$server = 'server';
+$server = 'localhost';
 // MySQL User account
 $login = 'user';
 // MySQL User password
