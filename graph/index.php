@@ -40,8 +40,8 @@
 			<option value="light">Luminosité [Lux]</option>
 			<option value="light_day">Luminosité [Lux] (moyenne journalière)</option>
 			<option value="energy_day">Energie [Wh] (moyenne journalière)</option>
-			<option value="water_day">Eau [L] (moyenne journalière)</option>
-			<option value="water_month">Eau [L] (moyenne mensuelle)</option>
+			<!-- <option value="water_day">Eau [L] (moyenne journalière)</option> -->
+			<!-- <option value="water_month">Eau [L] (moyenne mensuelle)</option> -->
 			<option value="co2">CO2 [ppm]</option>
 			<option value="co2_day">CO2 [ppm] (moyenne journalière)</option>
 			<option value="pressure">Pression atmosphérique [hPa]</option>
@@ -50,6 +50,8 @@
 			<option value="noise_day">Bruit [dB] (moyenne journalière)</option>
 			<option value="rain">Pluie [mm]</option>
 			<!-- <option value="rain_day">Pluie [mm] (moyenne journalière)</option> --> <!-- Not yet available / planned for future release -->
+			<option value="wind">Vent [km/h]</option>
+			<option value="wind_day">Vent [km/h] (moyenne journalière)</option>
 		</select>
 
 		<font color=FFFFFF>Graph: </a></font>

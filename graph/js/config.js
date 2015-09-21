@@ -48,7 +48,9 @@ var chartsConfig = [
 		zones: [{color: '#CCFFCC', from: 0, to: 45}, {color: '#FAFABB', from: 45, to: 65}, {color: '#FFE6E6', from: 65, to: 140}]
 	},
 	{type:'rain', title: 'Pluie', yaxis: 'Pluie (mm)', tooltip: 'mm', min: 0},
-	{type:'rain_day', title: 'Historique de pluie (moyenne journalière)', yaxis: 'Pluie (mm)', tooltip: 'mm', min: 0}
+	{type:'rain_day', title: 'Historique de pluie (moyenne journalière)', yaxis: 'Pluie (mm)', tooltip: 'mm', min: 0},
+	{type:'wind', title: 'Vent', yaxis: 'Vent (km/h)', tooltip: 'km/h', min: 0},
+	{type:'wind_day', title: 'Historique de vent (moyenne journalière)', yaxis: 'Vent (km/h)', tooltip: 'km/h', min: 0}
 ]
 var rangeselector = {
 	buttons: [

@@ -278,6 +278,26 @@ CREATE TABLE IF NOT EXISTS `domotique_water_month` (
   `max_day_value` SMALLINT unsigned NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Structure des tables `domotique_wind`
+--
+
+CREATE TABLE IF NOT EXISTS `domotique_wind` (
+  `id` int(10) unsigned NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `device_id` smallint(6) NOT NULL,
+  `value` decimal(5,2) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `domotique_wind_day` (
+  `id` int(10) unsigned NOT NULL,
+  `date` date NOT NULL,
+  `device_id` smallint(6) NOT NULL,
+  `min_value` decimal(5,2) DEFAULT NULL,
+  `avg_value` decimal(5,2) DEFAULT NULL,
+  `max_value` decimal(5,2) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 -- --------------------------------------------------------
 -- Index des tables
 -- --------------------------------------------------------
@@ -392,6 +412,15 @@ ALTER TABLE `domotique_water_month`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `device_date` (`device_id`,`year`,`month`);
 
+ALTER TABLE `domotique_wind`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `device` (`device_id`,`time`);
+
+ALTER TABLE `domotique_wind_day`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `device_date` (`date`,`device_id`),
+  ADD KEY `device_id` (`device_id`);
+
 -- --------------------------------------------------------
 -- AUTO_INCREMENT des tables
 -- --------------------------------------------------------
@@ -503,6 +532,16 @@ ALTER TABLE `domotique_water_day`
 -- AUTO_INCREMENT pour la table `domotique_water_month`
 --
 ALTER TABLE `domotique_water_month`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour les tables `domotique_wind`
+--
+
+ALTER TABLE `domotique_wind`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `domotique_wind_day`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 
 -- --------------------------------------------------------

@@ -251,6 +251,27 @@ try {
 	$bdd->prepare("DELETE FROM domotique_rain WHERE DATE(time) < SUBDATE(CURDATE(), 21)")->execute();
 	$bdd->prepare("OPTIMIZE TABLE domotique_rain")->execute();
 
+	//*** Wind
+	$bdd->prepare("
+		INSERT INTO domotique_wind_day (date, device_id, min_value, avg_value, max_value)
+		SELECT
+			DATE(time) AS date,
+			device_id as device_id,
+			MIN(value) AS min_value,
+			AVG(value) AS avg_value,
+			MAX(value) AS max_value
+		FROM
+			domotique_wind
+		WHERE
+			DATE(time) > ( SELECT COALESCE(MAX(`date`), '0001-01-01') FROM domotique_wind_day )
+			AND DATE(time) < CURDATE()
+		GROUP BY
+			date,
+			device_id
+	")->execute();
+	$bdd->prepare("DELETE FROM domotique_wind WHERE DATE(time) < SUBDATE(CURDATE(), 21)")->execute();
+	$bdd->prepare("OPTIMIZE TABLE domotique_wind")->execute();
+
 }
 catch (Exception $e) {
 	echo $e->getMessage();

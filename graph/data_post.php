@@ -134,6 +134,7 @@ try {
 			case 'pressure':
 			case 'noise':
 			case 'rain':
+			case 'wind':
 				if ($timestamp) {
 					$SQLqueries[$type] = 'INSERT IGNORE INTO domotique_'.$type.' (time, device_id, value) VALUES ';
 					//$SQLqueries[$type] = 'INSERT IGNORE INTO domotique_test (time, device_id, value) VALUES ';         // ATTENTION : TEMPORAIRE POUR DEBUG
