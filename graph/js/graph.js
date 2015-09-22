@@ -219,7 +219,7 @@ function clickableseries() {
 		},
 		headingText: this.series.name,
 		//maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' + Highcharts.numberFormat(this.y, 0, ',') + getChartConfig(currentSensorType).tooltip,
-		maincontentText: Highcharts.dateFormat('%A %e/%d/%Y %H:%M:%S', this.x) + '<br/> ' + this.y + getChartConfig(currentSensorType).tooltip + deleteButton,
+		maincontentText: Highcharts.dateFormat('%A %e/%m/%Y %H:%M:%S', this.x) + '<br/> ' + this.y + getChartConfig(currentSensorType).tooltip + deleteButton,
 		width: 250
 	});
 }
