@@ -2,7 +2,7 @@
 /******************************************************************************/
 /*** File    : data_delete.php                                              ***/
 /*** Author  : Christophe DRIGET                                            ***/
-/*** Version : 5.0                                                          ***/
+/*** Version : 5.01                                                         ***/
 /*** History : March 2014  : Initial release                                ***/
 /***         : Sept   2015 : JSON                                           ***/
 /*** Note    : Delete data in database                                      ***/
@@ -43,9 +43,8 @@ try {
 		throw new Exception('Can not get DELETE data', 2);
 
 	//*** Debug
-	if (DEBUG) {
+	if (DEBUG)
 		echo $data.'<br/>'.PHP_EOL;
-	}
 
 	//*** Decode data
 	parse_str($data, $feed);
@@ -71,12 +70,23 @@ try {
 	else
 		throw new Exception('Invalid data : type', 5);
 
+	//*** Prepare query
+	if (substr($type, -4) == '_day') {
+		$query = 'DELETE FROM domotique_'.$type.' WHERE device_id = :deviceid AND UNIX_TIMESTAMP(date) = :timestamp / 1000';
+	}
+	elseif (substr($type, -6) == '_month') {
+		throw new Exception('Month not supported', 7);
+	}
+	else {
+		$query = 'DELETE FROM domotique_'.$type.' WHERE device_id = :deviceid AND UNIX_TIMESTAMP(time) = :timestamp / 1000';
+	}
+
 	//*** MySQL connection
 	if ( ! isset($bdd) )
 		$bdd = new PDO('mysql:host='.$server.';dbname='.$database.';charset=UTF8', $login, $password);
 
 	//*** Execute statement (delete data in MySQL database)
-	$sql = $bdd->prepare('DELETE FROM domotique_'.$type.' WHERE device_id = :deviceid AND UNIX_TIMESTAMP(time) = :timestamp / 1000');
+	$sql = $bdd->prepare($query);
 	$result = $sql->execute(array(
 		'deviceid'  => $id,
 		'timestamp' => $timestamp
@@ -100,7 +110,10 @@ try {
 catch (Exception $e) {
 	$response['success'] = false;
 	$response['error']['code'] = $e->getCode();
-	$response['error']['message'] = $e->getMessage();
+	if (DEBUG)
+		$response['error']['message'] = $e->getMessage().' on line '.$e->getLine().' in file '.basename($e->getFile()).' : '.$e->getTraceAsString();
+	else
+		$response['error']['message'] = $e->getMessage();
 }
 
 //*** Send result
